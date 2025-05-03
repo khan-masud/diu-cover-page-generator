@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const departmentTeacher = document.getElementById('departmentTeacher').value;
 
         
-        Basic validation
+        // Basic validation
         if (!studentName || !rollNo || !batchNo || !courseCode || !semesterNo || !departmentStudent || !courseName || !teacherName || !designation || !departmentTeacher) {
             alert('Please fill in all required fields.');
             return;
