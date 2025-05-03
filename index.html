@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Page Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PizZip/3.0.6/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-600 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">DIU Cover Page Generator</h1>
+            <div class="hidden md:block">
+                <a href="#generator" class="text-white mx-3 hover:text-blue-200">Generator</a>
+                <a href="#about" class="text-white mx-3 hover:text-blue-200">About</a>
+            </div>
+        </div>
+    </nav>
+
+            <div class="w-full h-64 bg-cover bg-center py-16 hero-image" style="background-image: url('DIU.jpg');">
+                <div class="container mx-auto px-4 text-center bg-green-500 text-white pt-4 pb-2 shadow-md" style="max-width: 80%;">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Generate Lab Report and Assignment Cover Page</h1>
+                    <p class="text-xl mb-8">Generate and download PDF or DOC of Cover Page for Dhaka International University.</p>
+                </div>
+          </div>
+
+    </div>
+
+    <section id="generator" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Generate Your Cover Page</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Select Cover Page Type</label>
+                    <div class="flex flex-wrap gap-4">
+                        <button id="labReportBtn" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 active">Lab Report</button>
+                        <button id="coverPageBtn" class="flex-1 py-3 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition duration-300">Assignment</button>
+                    </div>
+                </div>
+                
+                <form id="documentForm">
+                    <!-- Common Fields -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Student Name</label>
+                            <input type="text" id="studentName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Roll No</label>
+                            <input type="text" id="rollNo" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Batch</label>
+                            <input type="text" id="batchNo" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Semester</label>
+                            <input type="text" id="semesterNo" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+
+                    <div class="gap-4 mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Choose Department (Student)</label>
+                        <select name="departmentStudent" id="departmentStudent" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="Department Of CSE">Department Of CSE</option>
+                        <option value="Department Of EEE">Department Of EEE</option>
+                        <option value="Department Of Civil">Department Of Civil</option>
+                        <option value="Department Of Pharmacy">Department Of Pharmacy</option>
+                        <option value="Department Of Microbiology">Department Of Microbiology</option>
+                        <option value="Department Of Biochemistry and Molecular Biology">Department Of Biochemistry and M.B</option>
+                        <option value="Department Of Law">Department Of Law</option>
+                        <option value="Department Of English">Department Of English</option>
+                        <option value="Department Of Sociology">Department Of Sociology</option>
+                        <option value="Department Of Political Science">Department Of Political Science</option>
+                        <option value="Department Of Economics">Department Of Economics</option>
+                        <option value="Department Of Development Studies">Department Of Development Studies</option>
+                        </select>
+                    </div>
+
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Course Name</label>
+                            <input type="text" id="courseName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Course Code</label>
+                            <input type="text" id="courseCode" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Teacher Name</label>
+                            <input type="text" id="teacherName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Designation</label>
+                            <input type="text" id="designation" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Eg. Lecturer, Associate Professor..." required>
+                        </div>
+                    </div>
+
+                    <div class="gap-4 mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Choose Department (Teacher)</label>
+                        <select name="departmentTeacher" id="departmentTeacher" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="Department Of CSE">Department Of CSE</option>
+                            <option value="Department Of EEE">Department Of EEE</option>
+                            <option value="Department Of Civil">Department Of Civil</option>
+                            <option value="Department Of Pharmacy">Department Of Pharmacy</option>
+                            <option value="Department Of Microbiology">Department Of Microbiology</option>
+                            <option value="Department Of Biochemistry and Molecular Biology">Department Of Biochemistry and M.B</option>
+                            <option value="Department Of Law">Department Of Law</option>
+                            <option value="Department Of English">Department Of English</option>
+                            <option value="Department Of Sociology">Department Of Sociology</option>
+                            <option value="Department Of Political Science">Department Of Political Science</option>
+                            <option value="Department Of Economics">Department Of Economics</option>
+                            <option value="Department Of Development Studies">Department Of Development Studies</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Lab Report Specific Fields -->
+                    <div id="labReportFields">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2">Lab Report Title</label>
+                            <input type="text" id="labReportTitle" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Lab No</label>
+                                <input type="number" id="labReportNo" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Date Of Submission</label>
+                                <input type="date" id="submissionDate" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Assignment Specific Fields -->
+                    <div id="coverPageFields" class="hidden">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2">Assignment Title</label>
+                            <input type="text" id="assignmentTitle" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2">Assignment No</label>
+                            <input type="number" id="assignmentNo" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-semibold mb-2">Date Of Submission</label>
+                            <input type="date" id="assignmentSubmissionDate" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center mt-8">
+                        <button type="button" id="generateBtn" class="bg-green-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-green-700 transition duration-300">Generate Cover Page</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preview Modal -->
+    <div id="previewModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-screen overflow-auto">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Cover Page Preview</h3>
+                <button id="closeModal" class="text-gray-600 hover:text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="documentPreview" class="p-8">
+                <!-- Generated cover page preview -->
+            </div>
+            
+            <div class="flex justify-center p-4 border-t gap-4">
+                <button id="downloadPdf" class="bg-red-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-red-700 transition duration-300">
+                    Download PDF
+                </button>
+                <button id="downloadDoc" class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition duration-300">
+                    Download DOC
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">About DIU Cover Page Generator</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                DIU Cover Page generator is designed to help students of Dhaka International University to create their lab report and assignment cover page with few numbers of clicks from anytime, anywhere.
+                Simply input your course details, choose between a lab report or assignment page template,
+                and download the finished document in your preferred format. This tool will help to consumed the time for making or buying cover page.
+            </p>
+        </div>
+    </section>
+
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© <span id="currentYear"></span> DIU Cover Page Generator | All Rights Reserved</p>
+            <p class="mt-2 text-gray-400">Developed and Designed By <a href="https://www.facebook.com/abdullahalmasud.khan.1" class="font-bold">Abdullah Al Masud.</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const d = new Date();
+        let year = d.getFullYear();
+        document.getElementById("currentYear").innerHTML = year;
+        </script>
+    <script src="script.js"></script>
+</body>
+</html>
