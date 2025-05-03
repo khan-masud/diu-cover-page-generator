@@ -58,18 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const departmentTeacher = document.getElementById('departmentTeacher').value;
 
         
-        // Basic validation
-        // if (!fullName || !studentId || !courseName || !courseId || !instructorName || !dueDate) {
-        //     alert('Please fill in all required fields');
-        //     return;
-        // }
-        
-        // // Format date
-        // const formattedDueDate = new Date(submissionDate).toLocaleDateString('en-US', {
-        //     year: 'numeric',
-        //     month: 'long',
-        //     day: 'numeric'
-        // });
+        Basic validation
+        if (!studentName || !rollNo || !batchNo || !courseCode || !semesterNo || !departmentStudent || !courseName || !teacherName || !designation || !departmentTeacher) {
+            alert('Please fill in all required fields.');
+            return;
+        }
 
         function documentType() {
             if(labReport) {
