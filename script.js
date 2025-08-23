@@ -53,21 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const designation = document.getElementById("designation").value;
     const departmentTeacher = document.getElementById("departmentTeacher").value;
 
-    // if (
-    //   !studentName ||
-    //   !rollNo ||
-    //   !batchNo ||
-    //   !courseCode ||
-    //   !semesterNo ||
-    //   !departmentStudent ||
-    //   !courseName ||
-    //   !teacherName ||
-    //   !designation ||
-    //   !departmentTeacher
-    // ) {
-    //   alert("Please fill in all required fields.");
-    //   return;
-    // }
+    if (
+      !studentName ||
+      !rollNo ||
+      !batchNo ||
+      !courseCode ||
+      !semesterNo ||
+      !departmentStudent ||
+      !courseName ||
+      !teacherName ||
+      !designation ||
+      !departmentTeacher
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
     function documentType() {
       if (labReport) {
