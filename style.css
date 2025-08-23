@@ -196,6 +196,16 @@ textarea {
     max-height: 90vh;
     overflow-y: auto;
   }
+
+  .hero-p-text {
+    font-size: .875rem;
+    line-height: 1.5;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {
