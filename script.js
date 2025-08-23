@@ -53,21 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const designation = document.getElementById("designation").value;
     const departmentTeacher = document.getElementById("departmentTeacher").value;
 
-    if (
-      !studentName ||
-      !rollNo ||
-      !batchNo ||
-      !courseCode ||
-      !semesterNo ||
-      !departmentStudent ||
-      !courseName ||
-      !teacherName ||
-      !designation ||
-      !departmentTeacher
-    ) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+    // if (
+    //   !studentName ||
+    //   !rollNo ||
+    //   !batchNo ||
+    //   !courseCode ||
+    //   !semesterNo ||
+    //   !departmentStudent ||
+    //   !courseName ||
+    //   !teacherName ||
+    //   !designation ||
+    //   !departmentTeacher
+    // ) {
+    //   alert("Please fill in all required fields.");
+    //   return;
+    // }
 
     function documentType() {
       if (labReport) {
@@ -277,15 +277,15 @@ document.addEventListener("DOMContentLoaded", () => {
         box-sizing: border-box;
       }
       .temp-pdf-container .document-title {
-        font-size: 5rem !important;
+        font-size: 3rem !important;
         font-weight: bold;
         color: orange;
         font-family: "Comic Neue", cursive;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
       .temp-pdf-container .course-title {
-        font-size: 3rem !important;
+        font-size: 3.5rem !important;
         font-weight: bold;
         font-family: "Comic Relief", cursive;
         text-align: center;
@@ -415,15 +415,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         background-color: white;
                     }
                     .document-title {
-                        font-size: 5rem;
+                        font-size: 3rem;
                         font-weight: bold;
                         color: orange;
                         font-family: "Comic Neue", cursive;
                         text-align: center;
-                        margin-bottom: 2rem;
+                        margin-bottom: 1.5rem;
                     }
                     .course-title {
-                        font-size: 3rem;
+                        font-size: 4rem;
                         font-weight: bold;
                         font-family: "Comic Relief", cursive;
                         text-align: center;

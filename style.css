@@ -92,16 +92,16 @@ button:active {
 }
 
 .document-title {
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
   color: orange;
   font-family: "Comic Neue", cursive;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .course-title {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 5rem);
   font-weight: bold;
   font-family: "Comic Relief", cursive;
   text-align: center;
